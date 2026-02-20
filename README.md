@@ -123,3 +123,19 @@ After completing both homework assignments, you will be able to answer:
 | Need efficient copies of existing objects | **Prototype** |
 
 **That understanding will serve you throughout your entire career.** Good luck!
+
+---
+## моя реализация
+я собрала все четыре паттерны в одну систему, чтобы создание мобов было легче. вот что получилось:
+### как всё устроено (диаграмма)
+![диagramма](diagrams/diagram.png)
+
+### код:
+* **abstract factory**: сделала три фабрики (`fire`, `ice`, `shadow`). они следят, чтобы у огненного босса не выпадал ледяной лут(по стихиям).
+* **builder**: через `bossenemybuilder` теперь можно по шагам настраивать хп, способности и имя. без других конструкторов.
+* **director**: добавила `enemydirector`, чтобы он сам управлял билдером. создать мобов теперь очень быстрый процесс(1 строка).
+* **prototype**: добавила `enemyregistry`. это склад шаблонов: один раз создали босса, а потом просто клонируем его через `.clone()`.
+* **factory method**: он спрятан в методе `.build()`, так что создание объекта происходит без лишних деталей.
+
+### как запустить:
+надо запустить `com.narxoz.rpg.Main` и всеееее.
